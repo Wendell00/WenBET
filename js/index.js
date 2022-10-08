@@ -3,12 +3,15 @@ const opt2 = document.querySelector('.opt-2')
 const optMiddle = document.querySelector('.option-middle')
 let betDefined = ''
 
+const betInputValue = document.querySelector('.betInput').innerHTML
+
 opt1.addEventListener('click', (e) => {
     opt1.classList.toggle('selectedBet')
     removeSelected(opt2)
     removeSelected(optMiddle)
 
-    betDefined = 'blue'
+    if(opt1.classList.contains('selectedBet')) betDefined = 'blue'
+    else betDefined = ''
 })
 
 opt2.addEventListener('click', (e) => {
@@ -16,7 +19,8 @@ opt2.addEventListener('click', (e) => {
     removeSelected(opt1)
     removeSelected(optMiddle)
 
-    betDefined = 'green'
+    if(opt2.classList.contains('selectedBet')) betDefined = 'orange'
+    else betDefined = ''
 })
 
 optMiddle.addEventListener('click', (e) => {
@@ -24,7 +28,8 @@ optMiddle.addEventListener('click', (e) => {
     removeSelected(opt1)
     removeSelected(opt2)
 
-    betDefined = 'orange'
+    if(optMiddle.classList.contains('selectedBet')) betDefined = 'green'
+    else betDefined = ''
 })
 
 function removeSelected(betOpt){
