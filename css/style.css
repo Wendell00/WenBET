@@ -155,10 +155,25 @@ html {
   padding: 0 10%;
 }
 .betElement .row:first-child .options {
-  width: 30%;
+  width: auto;
   height: 80%;
   background-color: #ccc;
   border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1%;
+}
+.betElement .row:first-child .options img {
+  width: 40%;
+  height: 100%;
+}
+.betElement .row:first-child .options img {
+  margin-left: 3%;
+}
+.betElement .row:first-child .options img:first-child {
+  margin-left: 0%;
 }
 .betElement .row:first-child .option-middle {
   border-radius: 100%;
