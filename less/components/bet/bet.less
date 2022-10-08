@@ -21,15 +21,15 @@
         padding: 0 10%;
 
         .options{
+            position: relative;
             width: auto;
             height: 80%;
-            background-color: #ccc;
             border-radius: 50px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1%;
+            border-bottom: 3px solid white;
 
             img{
                 width: 40%;
@@ -49,7 +49,16 @@
             border-radius: 100%;
             width: 10%;
             height: 80%;
-            background-color: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-bottom: 3px solid white;
+
+            img{
+                width: 100%;
+                height: 100%;
+            }
         }
 
     }
@@ -84,4 +93,10 @@
             margin-left: 3%;
         }
     }
+}
+
+.selectedBet{
+    border: none !important;
+    background-color: #ccc;
+    box-shadow: rgba(107, 107, 107, 0.25) 0px 14px 28px, rgba(255, 255, 255, 0.22) 0px 10px 10px;
 }
