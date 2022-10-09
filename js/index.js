@@ -75,18 +75,21 @@ function checkResult(answerParam, betAmountParam){
 
     switch(true){
         case answerParam.search('Laranja') > 0 && betDefined == 'orange':
+            inGame = false
             cash = cash + (betAmountParam * 2)
             updateCash()
             console.log('deu laranja')
             intervalAfterGame() 
             break;
         case answerParam.search('Verde') > 0 && betDefined == 'green':
+            inGame = false
             cash = cash + (betAmountParam * 4)
             updateCash()
             console.log('deu green')
             intervalAfterGame() 
             break;
         case answerParam.search('Azul') > 0 && betDefined == 'blue':
+            inGame = false
             cash = cash + (betAmountParam * 2)
             updateCash()
             console.log('deu azul')
@@ -102,7 +105,8 @@ function checkResult(answerParam, betAmountParam){
 
 function updateCash(recarregar = false){
     if(cash > 0){btnRecarregar.classList.add('display-none')}else if(cash <= 0 && !inGame){btnRecarregar.classList.remove('display-none')}
-    let cashString = cash.toString()
+    let cashString = ''
+    cashString = cash.toString()
     amount.innerHTML = cashString.search('.') == 0 ? cashString + '.00' : cashString
 }
 
