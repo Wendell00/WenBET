@@ -4,6 +4,7 @@ let cash = 15
 let inGame = false
 let intervalo = ''
 let valorApostado = 0
+let answer = ''
 updateCash()
 
 const opt1 = document.querySelector('.opt-1')
@@ -61,7 +62,7 @@ btnBet.addEventListener('click', (e)=>{
                 if(e.target.classList.contains('bg-card') && inGame){
                     shuffleBet()
                     e.target.classList.add('display-none')
-                    let answer = e.target.parentElement.children[1].src
+                    answer = e.target.parentElement.children[1].src
                     checkResult(answer, valorApostado)
                 }
             })
@@ -76,16 +77,19 @@ function checkResult(answerParam, betAmountParam){
         case answerParam.search('Laranja') > 0 && betDefined == 'orange':
             cash = cash + (betAmountParam * 2)
             updateCash()
+            console.log('deu laranja')
             intervalAfterGame() 
             break;
         case answerParam.search('Verde') > 0 && betDefined == 'green':
             cash = cash + (betAmountParam * 4)
             updateCash()
+            console.log('deu green')
             intervalAfterGame() 
             break;
         case answerParam.search('Azul') > 0 && betDefined == 'blue':
             cash = cash + (betAmountParam * 2)
             updateCash()
+            console.log('deu azul')
             intervalAfterGame() 
             break;
         default: 
