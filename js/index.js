@@ -114,7 +114,6 @@ function shuffleBet(){
 
 shuffleBet()
 
-
 function intervalAfterGame(){
     betElement.classList.remove('display-none')
     let bgCard = document.querySelectorAll(".bg-card");
