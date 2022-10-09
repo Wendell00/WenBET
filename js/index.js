@@ -1,6 +1,9 @@
 const amount = document.querySelector('.amount')
+const btnRecarregar = document.querySelector('.btn-recarregar')
 let cash = 15
 let inGame = false
+let intervalo = ''
+let valorApostado = 0
 updateCash()
 
 const opt1 = document.querySelector('.opt-1')
@@ -46,32 +49,89 @@ const btnBet = document.querySelector('.btnBet')
 
 btnBet.addEventListener('click', (e)=>{
     e.preventDefault()
-    let valorApostado = betInputValue.value
+    valorApostado = betInputValue.value
     if(Number(valorApostado)){
         if(valorApostado <= cash && betDefined != ''){
             cash = cash - valorApostado
+            inGame = true
             updateCash()
             betElement.classList.add('display-none')
-            inGame = true
 
-            if(inGame){
-                document.addEventListener('click', (e)=>{
-                    if(e.target.classList.contains('bg-card')){
-                        e.target.classList.add('display-none')
-                    }
-                })
-            }
+            document.addEventListener('click', (e)=>{
+                if(e.target.classList.contains('bg-card') && inGame){
+                    shuffleBet()
+                    e.target.classList.add('display-none')
+                    let answer = e.target.parentElement.children[1].src
+                    checkResult(answer, valorApostado)
+                }
+            })
+            
         } 
     }
 })
 
-function updateCash(){
+function checkResult(answerParam, betAmountParam){
+
+    switch(true){
+        case answerParam.search('Laranja') > 0 && betDefined == 'orange':
+            cash = cash + (betAmountParam * 2)
+            updateCash()
+            intervalAfterGame() 
+            break;
+        case answerParam.search('Verde') > 0 && betDefined == 'green':
+            cash = cash + (betAmountParam * 4)
+            updateCash()
+            intervalAfterGame() 
+            break;
+        case answerParam.search('Azul') > 0 && betDefined == 'blue':
+            cash = cash + (betAmountParam * 2)
+            updateCash()
+            intervalAfterGame() 
+            break;
+        default: 
+            inGame = false
+            updateCash()
+            intervalAfterGame() 
+    }
+
+}
+
+function updateCash(recarregar = false){
+    if(cash > 0){btnRecarregar.classList.add('display-none')}else if(cash <= 0 && !inGame){btnRecarregar.classList.remove('display-none')}
     let cashString = cash.toString()
     amount.innerHTML = cashString.search('.') == 0 ? cashString + '.00' : cashString
 }
 
-const cards = document.querySelectorAll('.card')
+const cardImg = document.querySelectorAll('.imgCard')
+let listForShuffleBet = ['img/logoTesteAzul.png','img/logoTesteAzul.png','img/logoTesteAzul.png','img/logoTesteVerde.png','img/logoTesteLaranja.png','img/logoTesteLaranja.png','img/logoTesteLaranja.png']
 
-// cards.addEventListener('click', (e)=>{
-//     console.log(e.target)
-// })
+function shuffleBet(){
+    listForShuffleBet.sort(()=> Math.random() - 0.5)
+    for(let counter = 0; counter < cardImg.length; counter++){
+        cardImg[counter].src = listForShuffleBet[counter]
+    }
+}
+
+shuffleBet()
+
+
+function intervalAfterGame(){
+    betElement.classList.remove('display-none')
+    let bgCard = document.querySelectorAll(".bg-card");
+    bgCard.forEach(cardParam => {
+        btnBet.disabled = true
+        intervalo = setTimeout(function(){ 
+            cardParam.classList.remove("display-none"); 
+            btnBet.disabled = false
+            for(let counter = 0; counter < cardImg.length; counter++){
+                cardImg[counter].src = ''
+            }
+        }, 3000)
+    });
+}
+
+
+btnRecarregar.addEventListener('click', ()=>{
+    cash = 15
+    updateCash()
+})
