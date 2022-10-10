@@ -12,14 +12,17 @@
 <body>
     <main class="container-fluid">
 
-        <!-- Saldo -->
-        <div class="balance">
-            <div class="items-balance">
-                <p class="real">R$</p>
-                <p class="amount"></p>
-                <button class="btn-recarregar">Recarregue</button>
+
+        <nav>
+            <div class="balance">
+                <div class="items-balance">
+                    <p class="real">R$</p>
+                    <p class="amount"></p>
+                    <button class="btn-recarregar">Recarregue</button>
+                </div>
             </div>
-        </div>
+        </nav>
+        <!-- Saldo -->
 
         <!-- Cartas -->
         <div class="card-list">
@@ -37,21 +40,24 @@
             <div class="row">
                 <div class="options opt-1">
                     <p>2x o valor</p>
-                    <img src="img/logoTesteAzul.png">
+                    <img src="img/logoTesteAzul.png" class="img-first">
                     <img src="img/logoTesteAzul.png">
                     <img src="img/logoTesteAzul.png">
                 </div>
                 <div class="option-middle"><p>4x o valor</p><img src="img/logoTesteVerde.png"></div>
                 <div class="options opt-2">
                     <p>2x o valor</p>
-                    <img src="img/logoTesteLaranja.png">
+                    <img src="img/logoTesteLaranja.png" class="img-first">
                     <img src="img/logoTesteLaranja.png">
                     <img src="img/logoTesteLaranja.png">
                 </div>
             </div>
             <div class="row">
-                <form action="./">                
-                    <input type="text" class="betInput" placeholder="R$">
+                <form action="./">   
+                    <div class="input-box">
+                        <input type="text" class="betInput" required="required" placeholder="">
+                        <span>R$</span>
+                    </div>             
                     <input type="submit" class="btnBet" value="Apostar">
                 </form>
             </div>

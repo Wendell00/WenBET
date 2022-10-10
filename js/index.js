@@ -3,8 +3,10 @@ const btnRecarregar = document.querySelector('.btn-recarregar')
 let cash = 15
 let inGame = false
 let intervalo = ''
+let intervalo2 = ''
 let valorApostado = 0
 let answer = ''
+let imgCardSelected = ''
 updateCash()
 
 const opt1 = document.querySelector('.opt-1')
@@ -60,10 +62,11 @@ btnBet.addEventListener('click', (e)=>{
 
             document.addEventListener('click', (e)=>{
                 if(e.target.classList.contains('bg-card') && inGame){
+                    imgCardSelected = e.target.parentElement
                     shuffleBet()
                     e.target.classList.add('display-none')
-                    answer = e.target.parentElement.children[1].src
-                    checkResult(answer, valorApostado)
+                    answer = imgCardSelected.children[1].src
+                    checkResult(answer, valorApostado, imgCardSelected)
                 }
             })
             
@@ -71,7 +74,7 @@ btnBet.addEventListener('click', (e)=>{
     }
 })
 
-function checkResult(answerParam, betAmountParam){
+function checkResult(answerParam, betAmountParam, imgCardSelected){
 
     switch(true){
         case answerParam.search('Laranja') > 0 && betDefined == 'orange':
@@ -79,26 +82,26 @@ function checkResult(answerParam, betAmountParam){
             cash = cash + (betAmountParam * 2)
             updateCash()
             console.log('deu laranja')
-            intervalAfterGame() 
+            intervalAfterGame(imgCardSelected) 
             break;
         case answerParam.search('Verde') > 0 && betDefined == 'green':
             inGame = false
             cash = cash + (betAmountParam * 4)
             updateCash()
             console.log('deu green')
-            intervalAfterGame() 
+            intervalAfterGame(imgCardSelected) 
             break;
         case answerParam.search('Azul') > 0 && betDefined == 'blue':
             inGame = false
             cash = cash + (betAmountParam * 2)
             updateCash()
             console.log('deu azul')
-            intervalAfterGame() 
+            intervalAfterGame(imgCardSelected) 
             break;
         default: 
             inGame = false
             updateCash()
-            intervalAfterGame() 
+            intervalAfterGame(imgCardSelected) 
     }
 
 }
@@ -116,24 +119,32 @@ let listForShuffleBet = ['img/logoTesteAzul.png','img/logoTesteAzul.png','img/lo
 function shuffleBet(){
     listForShuffleBet.sort(()=> Math.random() - 0.5)
     for(let counter = 0; counter < cardImg.length; counter++){
+        cardImg[counter].classList.remove('display-none')
         cardImg[counter].src = listForShuffleBet[counter]
     }
 }
 
 shuffleBet()
 
-function intervalAfterGame(){
+function intervalAfterGame(imgCardSelected){
     betElement.classList.remove('display-none')
     let bgCard = document.querySelectorAll(".bg-card");
     bgCard.forEach(cardParam => {
         btnBet.disabled = true
         intervalo = setTimeout(function(){ 
-            cardParam.classList.remove("display-none"); 
-            btnBet.disabled = false
-            for(let counter = 0; counter < cardImg.length; counter++){
-                cardImg[counter].src = ''
-            }
-        }, 3000)
+            cardParam.classList.add('opacity-none')
+            imgCardSelected.classList.add('card-selected')
+
+            intervalo2 = setTimeout(function(){
+                cardParam.classList.remove("display-none"); 
+                btnBet.disabled = false
+                for(let counter = 0; counter < cardImg.length; counter++){
+                    cardImg[counter].classList.add('display-none')
+                }
+                cardParam.classList.remove('opacity-none')
+                imgCardSelected.classList.remove('card-selected')
+            }, 2000)
+        }, 2000)
     });
 }
 

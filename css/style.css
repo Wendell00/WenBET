@@ -136,7 +136,8 @@ html {
 }
 .betElement {
   width: 60vw;
-  height: 30vh;
+  height: 35vh;
+  padding-top: 5vh;
   margin: 0 auto;
   position: absolute;
   bottom: 0;
@@ -157,14 +158,19 @@ html {
 .betElement .row:first-child .options {
   width: auto;
   height: 80%;
+  min-width: 210px;
+  min-height: 70px;
   border-radius: 50px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1%;
-  border: 3px solid white;
+  border: 3px solid rgba(255, 255, 255, 0.25);
   position: relative;
+}
+.betElement .row:first-child .options .options:hover {
+  background-color: #ccc;
 }
 .betElement .row:first-child .options p {
   position: absolute;
@@ -179,23 +185,23 @@ html {
 .betElement .row:first-child .options img {
   width: 40%;
   height: 100%;
-}
-.betElement .row:first-child .options img {
   margin-left: 3%;
 }
-.betElement .row:first-child .options img:first-child {
+.betElement .row:first-child .options .img-first {
   margin-left: 0%;
 }
 .betElement .row:first-child .option-middle {
   border-radius: 100%;
-  width: 10%;
+  width: 12%;
+  min-width: 70px;
   height: 80%;
+  min-height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   padding: 1%;
-  border: 3px solid white;
+  border: 3px solid rgba(255, 255, 255, 0.25);
   position: relative;
 }
 .betElement .row:first-child .option-middle p {
@@ -211,6 +217,7 @@ html {
 .betElement .row:first-child .option-middle img {
   width: 90%;
   height: 100%;
+  min-width: 60px;
 }
 .betElement .row:last-child form {
   width: 100%;
@@ -219,57 +226,113 @@ html {
   justify-content: center;
   align-items: center;
 }
-.betElement .row:last-child form .betInput {
+.betElement .row:last-child form .input-box {
   width: 40%;
+  position: relative;
   height: 50%;
-  border: none;
-  border-radius: 40px;
-  background-color: white;
-  padding-left: 1%;
+  display: flex;
+}
+.betElement .row:last-child form .input-box .betInput {
+  width: 100%;
+  height: 100%;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  background-color: transparent;
+  color: #fff;
+  outline: none;
+  font-size: 1em;
+  padding: 10px;
+  transition: 0.5s;
+}
+.betElement .row:last-child form .input-box .betInput:valid ~ span,
+.betElement .row:last-child form .input-box .betInput:focus ~ span {
+  color: white;
+  transform: translateX(10px) translateY(-7px);
+  font-size: 0.65em;
+  padding: 0 10px;
+  background-color: #373737;
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+  letter-spacing: 0.2em;
+  width: auto;
+  height: auto;
+}
+.betElement .row:last-child form .input-box .betInput:valid,
+.betElement .row:last-child form .input-box .betInput:focus {
+  border: 3px solid #00FF00;
+}
+.betElement .row:last-child form .input-box span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 3.2%;
+  pointer-events: none;
+  font-size: 1em;
+  color: white;
+  transition: 0.5s;
 }
 .betElement .row:last-child form .btnBet {
-  width: 10%;
-  height: 50%;
-  background-color: #00FF00;
+  width: 15%;
+  box-sizing: border-box;
+  height: 60%;
+  background-color: #363636;
   font-size: 1.3vw;
   font-weight: 600;
-  color: white;
+  color: #00FF00;
+  border: 3px solid #00ff00;
+  padding: 10px;
   border-radius: 40px;
-  border: none;
   cursor: pointer;
   margin-left: 3%;
+}
+.betElement .row:last-child form .btnBet:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.25);
+}
+.betElement .row:first-child .options:hover,
+.betElement .row:first-child .option-middle:hover {
+  background-color: #ccc;
 }
 .selectedBet {
   background-color: #ccc;
   box-shadow: rgba(107, 107, 107, 0.25) 0px 14px 28px, rgba(255, 255, 255, 0.22) 0px 10px 10px;
 }
-.balance {
-  background-color: #ccc;
+nav {
+  width: 100%;
+  height: 7.5vh;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+nav .balance {
   width: auto;
   min-width: 100px;
   border-radius: 0 50px 50px 0;
   color: #00FF00;
-  margin-top: 2vh;
   display: inline-block;
   padding: 0.5vw 1vw;
 }
-.balance .items-balance {
+nav .balance .items-balance {
   display: flex;
 }
-.balance .items-balance .real {
+nav .balance .items-balance .real {
   color: white;
   font-size: 24px;
   text-shadow: 2px 2px 0px black;
 }
-.balance .items-balance .amount {
+nav .balance .items-balance .amount {
   font-size: 24px;
   margin-left: 1vw;
   text-shadow: 2px 2px 0px black;
 }
-.balance .btn-recarregar {
+nav .balance .btn-recarregar {
+  background-color: transparent;
   font-size: 20px;
   border: none;
   color: crimson;
+  text-shadow: 2px 2px 0px black;
   border-radius: 15px;
   margin-left: 4%;
   cursor: pointer;
@@ -301,11 +364,13 @@ html {
   box-shadow: rgba(107, 107, 107, 0.25) 0px 14px 28px, rgba(255, 255, 255, 0.22) 0px 10px 10px;
   border-radius: 15px;
   z-index: 2;
+  transition: 1s;
 }
 .card-list .card img {
   position: absolute;
-  width: 100%;
-  height: 65%;
+  left: 5%;
+  width: 90%;
+  height: 55%;
   z-index: 1;
 }
 main {
@@ -320,4 +385,10 @@ body {
 }
 .display-none {
   display: none;
+}
+.opacity-none {
+  opacity: 0;
+}
+.card-selected {
+  border: 3px solid rgba(255, 255, 255, 0.25);
 }
