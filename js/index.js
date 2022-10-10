@@ -58,7 +58,9 @@ btnBet.addEventListener('click', (e)=>{
             cash = cash - valorApostado
             inGame = true
             updateCash()
-            betElement.classList.add('display-none')
+            betElement.children[2].children[1].src = betDefined == 'blue' ? 'img/logoTesteAzul.png' : betDefined == 'green' ? 'img/logoTesteVerde.png' : betDefined == 'orange' ? 'img/logoTesteLaranja.png' : '.';
+            betElement.children[3].children[1].innerHTML = `<span>R$</span> ${valorApostado}.00`
+            betDisplay(betElement, inGame)
 
             document.addEventListener('click', (e)=>{
                 if(e.target.classList.contains('bg-card') && inGame){
@@ -66,6 +68,7 @@ btnBet.addEventListener('click', (e)=>{
                     shuffleBet()
                     e.target.classList.add('display-none')
                     answer = imgCardSelected.children[1].src
+                    console.log(answer)
                     checkResult(answer, valorApostado, imgCardSelected)
                 }
             })
@@ -127,7 +130,6 @@ function shuffleBet(){
 shuffleBet()
 
 function intervalAfterGame(imgCardSelected){
-    betElement.classList.remove('display-none')
     let bgCard = document.querySelectorAll(".bg-card");
     bgCard.forEach(cardParam => {
         btnBet.disabled = true
@@ -143,11 +145,25 @@ function intervalAfterGame(imgCardSelected){
                 }
                 cardParam.classList.remove('opacity-none')
                 imgCardSelected.classList.remove('card-selected')
+                betDisplay(betElement, inGame)
             }, 2000)
         }, 2000)
     });
 }
 
+function betDisplay(elementParam, inGameParam){
+    if(inGameParam){
+        elementParam.children[0].classList.add('display-none')
+        elementParam.children[1].classList.add('display-none')
+        elementParam.children[2].classList.remove('display-none')
+        elementParam.children[3].classList.remove('display-none')
+    }else{
+        elementParam.children[0].classList.remove('display-none')
+        elementParam.children[1].classList.remove('display-none')
+        elementParam.children[2].classList.add('display-none')
+        elementParam.children[3].classList.add('display-none')
+    }
+}
 
 btnRecarregar.addEventListener('click', ()=>{
     cash = 15
