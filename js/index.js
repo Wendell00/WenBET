@@ -46,7 +46,6 @@ function removeSelected(betOpt){
     betOpt.classList.remove('selectedBet')
 }
 
-
 const betInputValue = document.querySelector('.betInput')
 const btnBet = document.querySelector('.btnBet')
 
