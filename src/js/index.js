@@ -71,8 +71,8 @@ btnBet.addEventListener('click', (e)=>{
                     checkResult(answer, valorApostado, imgCardSelected)
                 }
             })
-            
-        } 
+
+        }
     }
 })
 
@@ -84,26 +84,26 @@ function checkResult(answerParam, betAmountParam, imgCardSelected){
             cash = cash + (betAmountParam * 2)
             updateCash()
             console.log('deu laranja')
-            intervalAfterGame(imgCardSelected) 
+            intervalAfterGame(imgCardSelected)
             break;
         case answerParam.search('Verde') > 0 && betDefined == 'green':
             inGame = false
             cash = cash + (betAmountParam * 4)
             updateCash()
             console.log('deu green')
-            intervalAfterGame(imgCardSelected) 
+            intervalAfterGame(imgCardSelected)
             break;
         case answerParam.search('Azul') > 0 && betDefined == 'blue':
             inGame = false
             cash = cash + (betAmountParam * 2)
             updateCash()
             console.log('deu azul')
-            intervalAfterGame(imgCardSelected) 
+            intervalAfterGame(imgCardSelected)
             break;
-        default: 
+        default:
             inGame = false
             updateCash()
-            intervalAfterGame(imgCardSelected) 
+            intervalAfterGame(imgCardSelected)
     }
 
 }
@@ -132,12 +132,12 @@ function intervalAfterGame(imgCardSelected){
     let bgCard = document.querySelectorAll(".bg-card");
     bgCard.forEach(cardParam => {
         btnBet.disabled = true
-        intervalo = setTimeout(function(){ 
+        intervalo = setTimeout(function(){
             cardParam.classList.add('opacity-none')
             imgCardSelected.classList.add('card-selected')
 
             intervalo2 = setTimeout(function(){
-                cardParam.classList.remove("display-none"); 
+                cardParam.classList.remove("display-none");
                 btnBet.disabled = false
                 for(let counter = 0; counter < cardImg.length; counter++){
                     cardImg[counter].classList.add('display-none')
