@@ -57,7 +57,7 @@ btnBet.addEventListener('click', (e)=>{
             cash = cash - valorApostado
             inGame = true
             updateCash()
-            betElement.children[2].children[1].src = betDefined == 'blue' ? 'img/logoTesteAzul.png' : betDefined == 'green' ? 'img/logoTesteVerde.png' : betDefined == 'orange' ? 'img/logoTesteLaranja.png' : '.';
+            betElement.children[2].children[1].src = betDefined == 'blue' ? 'src/img/logoTesteAzul.png' : betDefined == 'green' ? 'src/img/logoTesteVerde.png' : betDefined == 'orange' ? 'src/img/logoTesteLaranja.png' : '.';
             betElement.children[3].children[1].innerHTML = `<span>R$</span> ${valorApostado}.00`
             betDisplay(betElement, inGame)
 
@@ -116,7 +116,7 @@ function updateCash(recarregar = false){
 }
 
 const cardImg = document.querySelectorAll('.imgCard')
-let listForShuffleBet = ['img/logoTesteAzul.png','img/logoTesteAzul.png','img/logoTesteAzul.png','img/logoTesteVerde.png','img/logoTesteLaranja.png','img/logoTesteLaranja.png','img/logoTesteLaranja.png']
+let listForShuffleBet = ['src/img/logoTesteAzul.png','src/img/logoTesteAzul.png','src/img/logoTesteAzul.png','src/img/logoTesteVerde.png','src/img/logoTesteLaranja.png','src/img/logoTesteLaranja.png','src/img/logoTesteLaranja.png']
 
 function shuffleBet(){
     listForShuffleBet.sort(()=> Math.random() - 0.5)
