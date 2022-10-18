@@ -1,5 +1,6 @@
 {
+    "code-runner.clearPreviousOutput": true,
     "code-runner.executorMap": {
-        "typescript": "cls && npx ts-node --files"
+        "typescript": "npx ts-node --files"
     }
 }
