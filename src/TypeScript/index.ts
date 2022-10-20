@@ -1,19 +1,17 @@
-// class Pessoa {
-//   nome: string | undefined;
-//   idade: number | undefined;
-//   frase: string | undefined;
+// export class criaAposta {
+//   constructor(public valorDaAposta: number, public timeApostado: string, public carteira: number) {}
+
+//   updateCash() {
+//     if (this.carteira > 0) {
+//       btnRecarregar.classList.add('display-none');
+//     } else if (this.carteira <= 0 && !inGame) {
+//       btnRecarregar.classList.remove('display-none');
+//     }
+//     let carteiraString = '';
+//     carteiraString = this.carteira.toString();
+//     amount.innerHTML = carteiraString.search('.') == 0 ? carteiraString + '.00' : carteiraString;
+//   }
 // }
-
-// function criaPessoa(nome: string, idade: number, frase: string): object {
-//   const pessoas = new Pessoa();
-//   pessoas.nome = nome;
-//   pessoas.idade = idade;
-//   pessoas.frase = frase;
-
-//   return pessoas;
-// }
-
-// console.log(typeof criaPessoa('Wendell', 19, 'Venha ser feliz'));
 
 const amount = document.querySelector('.amount') as HTMLParagraphElement;
 const btnRecarregar = document.querySelector('.btn-recarregar') as HTMLButtonElement;
@@ -60,7 +58,7 @@ optMiddle.addEventListener('click', () => {
   else betDefined = '';
 });
 
-function removeSelected(betOpt: HTMLDivElement) {
+function removeSelected(betOpt: HTMLDivElement): void {
   betOpt.classList.remove('selectedBet');
 }
 
@@ -133,17 +131,6 @@ function checkResult(answerParam: string, betAmountParam: number, imgCardSelecte
   }
 }
 
-function updateCash() {
-  if (cash > 0) {
-    btnRecarregar.classList.add('display-none');
-  } else if (cash <= 0 && !inGame) {
-    btnRecarregar.classList.remove('display-none');
-  }
-  let cashString = '';
-  cashString = cash.toString();
-  amount.innerHTML = cashString.search('.') == 0 ? cashString + '.00' : cashString;
-}
-
 const cardImg = document.querySelectorAll('.imgCard');
 let cardImgFor: HTMLImageElement;
 
@@ -157,7 +144,7 @@ const listForShuffleBet = [
   'src/img/logoTesteLaranja.png',
 ];
 
-function shuffleBet() {
+function shuffleBet(): void {
   listForShuffleBet.sort(() => Math.random() - 0.5);
   for (let counter = 0; counter < cardImg.length; counter++) {
     cardImgFor = cardImg[counter] as HTMLImageElement;
@@ -168,7 +155,7 @@ function shuffleBet() {
 
 shuffleBet();
 
-function intervalAfterGame(imgCardSelected: HTMLDivElement) {
+function intervalAfterGame(imgCardSelected: HTMLDivElement): void {
   const bgCard = document.querySelectorAll('.bg-card');
   bgCard.forEach((cardParam) => {
     btnBet.disabled = true;
@@ -191,7 +178,7 @@ function intervalAfterGame(imgCardSelected: HTMLDivElement) {
   });
 }
 
-function betDisplay(elementParam: HTMLDivElement, inGameParam: boolean) {
+function betDisplay(elementParam: HTMLDivElement, inGameParam: boolean): void {
   if (inGameParam) {
     elementParam.children[0].classList.add('display-none');
     elementParam.children[1].classList.add('display-none');
@@ -203,6 +190,17 @@ function betDisplay(elementParam: HTMLDivElement, inGameParam: boolean) {
     elementParam.children[2].classList.add('display-none');
     elementParam.children[3].classList.add('display-none');
   }
+}
+
+function updateCash(): void {
+  if (cash > 0) {
+    btnRecarregar.classList.add('display-none');
+  } else if (cash <= 0 && !inGame) {
+    btnRecarregar.classList.remove('display-none');
+  }
+  let cashString = '';
+  cashString = cash.toString();
+  amount.innerHTML = cashString.search('.') == 0 ? cashString + '.00' : cashString;
 }
 
 btnRecarregar.addEventListener('click', () => {
