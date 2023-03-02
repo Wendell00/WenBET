@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import logo from '../assets/img/logo.svg';
 
 const NavBarStyles = styled.header`
     width: 100vw;
@@ -12,7 +13,6 @@ const NavBarStyles = styled.header`
     .logo{
       width: auto;
       height: 100%;
-      object-fit: contain;
     }
 
     @media (min-width: 768px)
@@ -26,7 +26,7 @@ export const NavBar = () =>{
     return(
       <NavBarStyles>
         <div className="nav">
-          <img src="../assets/img/Logo.svg" className="logo"/>
+          <img src={logo} alt="" className="logo"/>
         </div>
       </NavBarStyles>
     )
