@@ -26,7 +26,7 @@ export const NavBar = () =>{
     return(
       <NavBarStyles>
         <div className="nav">
-          <img src="./src/assets/img/Logo.svg" className="logo"/>
+          <img src="../assets/img/Logo.svg" className="logo"/>
         </div>
       </NavBarStyles>
     )
