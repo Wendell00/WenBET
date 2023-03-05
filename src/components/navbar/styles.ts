@@ -17,5 +17,9 @@ export const NavBarStyles = styled.header`
     @media (min-width: 768px)
     {
       height: 15vh;
+
+      .logo{
+        min-width: 310px;
+      }
     }
 `;
