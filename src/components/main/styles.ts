@@ -2,31 +2,16 @@ import styled from "styled-components";
 
 export const MainStyles = styled.main`
 
-    @keyframes rodar {
-        from {transform: rotateY(0);}
-        to {transform: rotateY(360deg);}
-    }
-
-    @keyframes main-bg {
-        from {background: rgb(34,34,34);
-            background: radial-gradient(circle, rgba(34,34,34,1) 0%, rgba(67,67,67,1) 50%, rgba(34,34,34,1) 100%);}
-        to { background: rgb(34,34,34);
-            background: radial-gradient(circle, rgba(34,34,34,1) 0%, rgba(136,47,47,1) 50%, rgba(34,34,34,1) 100%););}
-    }
-
     .main-content{
         display: flex;
         margin: 0 auto;
-        border-radius: 2%;
         margin-top: 2%;
         box-sizing: border-box;
         width: 96vw;
         height: 70vh;
         padding: 0% 10%;
         padding-right: 0;
-        border-radius: 80px 0px;
-        background: rgb(34,34,34);
-        background: linear-gradient(0deg, rgba(34,34,34,1) 17%, rgba(51,51,51,1) 100%);
+        border-radius: 80px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 
@@ -98,14 +83,13 @@ export const MainStyles = styled.main`
             height: 100%;
             display: flex;
             align-items: center;
+            justify-content: center;
+
 
             .img-home{
-                width: 100%;
-                height: 100%;
-                // animation-name: rodar;
-                // animation-duration: 5s;
-                // animation-iteration-count: infinite;
-                transform: rotateY(180deg);
+                height: 80%;
+                transition: .6s;
+                filter: drop-shadow(10px 10px 10px white);
             }
         }
     }

@@ -20,7 +20,7 @@ export const Main = () =>{
                 </p>
               </div>
               <div className='main-inner2'>
-                  <img src="./imgHome.svg" className='img-home'/>
+                  <img src="./imgHome.png" className='img-home'/>
               </div>
           </div>
         </MainStyles>
