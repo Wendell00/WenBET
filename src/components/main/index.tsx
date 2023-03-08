@@ -7,7 +7,7 @@ export const Main = () =>{
         <MainStyles>
           <div className='main-content'>
               <div className='main-inner1'>
-                <h1>Teste sua sorte em nosso site de aposta!</h1>
+                <h1>Teste sua sorte em nosso site de <span>aposta!</span></h1>
                 <p className='p1-main'>Em vez de começar depositando dinheiro real, 
                   você pode jogar em nosso site com dinheiro fícticio e se divertir com o ranking.
                   Começe agora:</p>

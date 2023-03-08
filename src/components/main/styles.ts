@@ -7,12 +7,13 @@ export const MainStyles = styled.main`
         margin: 0 auto;
         margin-top: 2%;
         box-sizing: border-box;
+        background-image: url('./bgmain-red.png');
         width: 96vw;
         height: 70vh;
         padding: 0% 10%;
         padding-right: 0;
         border-radius: 80px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
 
         .main-inner1{
@@ -30,6 +31,8 @@ export const MainStyles = styled.main`
                 font-family: 'Roboto', sans-serif;
                 font-weight: 500;
                 color: white;
+                position: relative;
+                z-index: 10;
             }
 
             .p1-main{
