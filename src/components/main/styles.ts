@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const MainStyles = styled.main`
 
     .main-content{
+        position: relative;
         display: flex;
         margin: 0 auto;
         margin-top: 2%;
@@ -17,8 +18,7 @@ export const MainStyles = styled.main`
 
         @media (min-width: 768px) {
             height: 70vh;
-          }
-
+        }
 
         .main-inner1{
             width: 50%;
@@ -38,6 +38,17 @@ export const MainStyles = styled.main`
                 color: white;
                 position: relative;
                 z-index: 10;
+
+                @media (min-width: 1040px){
+                    width: 350px;
+                    font-size: 2.2em;
+                }
+
+                @media (min-width: 1190px){
+                    font-size: 3em;
+                    max-width: 475px;
+                    width: auto;
+                }
             }
 
             .p1-main{
@@ -47,6 +58,16 @@ export const MainStyles = styled.main`
                 color: white;
                 font-family: 'Roboto', sans-serif;
                 font-weight: 300;
+
+                @media (min-width: 1040px) {
+                    width: 460px;
+                    font-size: 1.1rem;
+                }
+
+                @media (min-width: 1190px) {
+                    width: 600px;
+                    font-size: 1.5rem;
+                }
             }
 
             .start-bet{
@@ -58,6 +79,11 @@ export const MainStyles = styled.main`
                     height: 40px;
                     border: none;
                     text-align: center;
+                    
+                    @media(min-width: 1040px){       
+                        width: 300px;
+                        height: 55px;
+                    }
                 }
 
                 .btn-start-bet{
@@ -66,65 +92,40 @@ export const MainStyles = styled.main`
                     font-family: 'Roboto', sans-serif;
                     font-weight: 500;
                     border: none;
-                    width: 150px;
+                    width: 130px;
                     height: 40px;
                     background-color: #136E10;
                     cursor:pointer;
-                }
-            }
 
-            .p2-main{
-                margin-top: 5px;
-                font-size: 0.8em;
-                font-style: italic;
-                font-weight: 300;
-                color: white;
-            }
-
-            @media (min-width: 1040px) {
-                h1{
-                    width: 350px;
-                    font-size: 2.2em;
-                }
-
-                .p1-main{
-                    width: 460px;
-                    font-size: 1.1rem;
-                }
-
-                .start-bet{
-                    margin-top: 15px;
-                    display:flex;
-    
-                    .input-start-bet{
-                        width: 300px;
-                        height: 55px;
+                    @media(min-width: 840px){       
+                        font-size: 0.9rem;
+                        width: 150px;
+                        height: 40px;
                     }
-    
-                    .btn-start-bet{
+
+                    @media(min-width: 1040px){       
                         font-size: 1rem;
                         width: 200px;
                         height: 55px;
                     }
                 }
+            }
 
-                .p2-main{
+            .p2-main{
+                margin-top: 5px;
+                font-size: 0.7em;
+                font-style: italic;
+                font-weight: 300;
+                color: white;
+
+                @media(min-width:840px){
+                    font-size: 0.8em;
+                }
+
+                @media (min-width: 1040px) {
                     font-size: 1em;
                 }
-              }
-
-            @media (min-width: 1190px) {
-                h1{
-                    font-size: 3em;
-                    max-width: 475px;
-                    width: auto;
-                }
-
-                .p1-main{
-                    width: 600px;
-                    font-size: 1.5rem;
-                }
-              }
+            }
         }
 
         .main-inner2{
@@ -139,10 +140,8 @@ export const MainStyles = styled.main`
             .img-home{
                 height: 70%;
                 filter: drop-shadow(10px 10px 10px white);
-            }
 
-            @media (min-width: 1190px) {
-                .img-home{
+                @media (min-width: 1190px) {
                     height: 80%;
                 }
             }
