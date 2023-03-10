@@ -9,11 +9,16 @@ export const MainStyles = styled.main`
         box-sizing: border-box;
         background-image: url('./bgmain-red.png');
         width: 96vw;
-        height: 70vh;
+        height: 80vh;
         padding: 0% 10%;
         padding-right: 0;
         border-radius: 80px;
         box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+
+        @media (min-width: 768px) {
+            height: 70vh;
+            min-height: 524px;
+          }
 
 
         .main-inner1{
@@ -25,9 +30,8 @@ export const MainStyles = styled.main`
             align-items: start;
 
             h1{
-                width: auto;
-                max-width: 475px;
-                font-size: 3rem;
+                width: 350px;
+                font-size: 2.2em;
                 font-family: 'Roboto', sans-serif;
                 font-weight: 500;
                 color: white;
@@ -37,9 +41,8 @@ export const MainStyles = styled.main`
 
             .p1-main{
                 margin-top: 15px;
-                width: auto;
-                max-width: 600px;
-                font-size: 1.5rem;
+                width: 460px;
+                font-size: 1.1rem;
                 color: white;
                 font-family: 'Roboto', sans-serif;
                 font-weight: 300;
@@ -71,6 +74,31 @@ export const MainStyles = styled.main`
                 }
             }
 
+            @media (min-width: 1040px) {
+                h1{
+                    width: 350px;
+                    font-size: 2.2em;
+                }
+
+                .p1-main{
+                    width: 460px;
+                    font-size: 1.1rem;
+                }
+              }
+
+            @media (min-width: 1190px) {
+                h1{
+                    font-size: 3em;
+                    max-width: 475px;
+                    width: auto;
+                }
+
+                .p1-main{
+                    width: 600px;
+                    font-size: 1.5rem;
+                }
+              }
+
 
             .p2-main{
                 margin-top: 5px;
@@ -88,11 +116,15 @@ export const MainStyles = styled.main`
             align-items: center;
             justify-content: center;
 
-
             .img-home{
-                height: 80%;
-                transition: .6s;
+                height: 70%;
                 filter: drop-shadow(10px 10px 10px white);
+            }
+
+            @media (min-width: 1190px) {
+                .img-home{
+                    height: 80%;
+                }
             }
         }
     }
