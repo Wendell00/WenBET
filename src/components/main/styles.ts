@@ -17,7 +17,6 @@ export const MainStyles = styled.main`
 
         @media (min-width: 768px) {
             height: 70vh;
-            min-height: 524px;
           }
 
 
@@ -28,6 +27,8 @@ export const MainStyles = styled.main`
             flex-direction: column;
             justify-content: center;
             align-items: start;
+            position: relative;
+            z-index: 100;
 
             h1{
                 width: 350px;
@@ -41,8 +42,8 @@ export const MainStyles = styled.main`
 
             .p1-main{
                 margin-top: 15px;
-                width: 460px;
-                font-size: 1.1rem;
+                width: 335px;
+                font-size: 0.8rem;
                 color: white;
                 font-family: 'Roboto', sans-serif;
                 font-weight: 300;
@@ -53,25 +54,31 @@ export const MainStyles = styled.main`
                 display:flex;
 
                 .input-start-bet{
-                    padding: 5px;
-                    width: 300px;
-                    height: 55px;
+                    width: 250px;
+                    height: 40px;
                     border: none;
                     text-align: center;
                 }
 
                 .btn-start-bet{
-                    font-size: 1rem;
+                    font-size: 0.9rem;
                     color: white;
                     font-family: 'Roboto', sans-serif;
                     font-weight: 500;
                     border: none;
-                    width: 200px;
-                    height: 55px;
-                    padding: 5px;
+                    width: 150px;
+                    height: 40px;
                     background-color: #136E10;
                     cursor:pointer;
                 }
+            }
+
+            .p2-main{
+                margin-top: 5px;
+                font-size: 0.8em;
+                font-style: italic;
+                font-weight: 300;
+                color: white;
             }
 
             @media (min-width: 1040px) {
@@ -83,6 +90,26 @@ export const MainStyles = styled.main`
                 .p1-main{
                     width: 460px;
                     font-size: 1.1rem;
+                }
+
+                .start-bet{
+                    margin-top: 15px;
+                    display:flex;
+    
+                    .input-start-bet{
+                        width: 300px;
+                        height: 55px;
+                    }
+    
+                    .btn-start-bet{
+                        font-size: 1rem;
+                        width: 200px;
+                        height: 55px;
+                    }
+                }
+
+                .p2-main{
+                    font-size: 1em;
                 }
               }
 
@@ -98,15 +125,6 @@ export const MainStyles = styled.main`
                     font-size: 1.5rem;
                 }
               }
-
-
-            .p2-main{
-                margin-top: 5px;
-                font-size: 1rem;
-                font-style: italic;
-                font-weight: 300;
-                color: white;
-            }
         }
 
         .main-inner2{
@@ -115,6 +133,8 @@ export const MainStyles = styled.main`
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            z-index: 2;
 
             .img-home{
                 height: 70%;
