@@ -11,24 +11,30 @@ export const MainStyles = styled.main`
         background-image: url('./bgmain-red.png');
         width: 96vw;
         height: 80vh;
-        padding: 0% 10%;
-        padding-right: 0;
+        padding: 0;
         border-radius: 80px;
         box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
         @media (min-width: 768px) {
             height: 70vh;
+            padding: 0% 10%;
+            padding-right: 0;
         }
 
         .main-inner1{
-            width: 50%;
+            width: 100%;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: start;
+            align-items: center;
             position: relative;
             z-index: 100;
+
+            @media (min-width: 768px) {
+                width: 50%;
+                align-items: start;
+            }
 
             h1{
                 width: 350px;
@@ -129,17 +135,30 @@ export const MainStyles = styled.main`
         }
 
         .main-inner2{
-            width: 50%;
+            width: 100%;
             height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            position: absolute;
+            left: 0;
             z-index: 2;
 
+            @media (min-width: 768px) {
+                width: 50%;
+                position: relative;
+            }
+
             .img-home{
-                height: 70%;
-                filter: drop-shadow(10px 10px 10px white);
+                height: 80%;
+                opacity: 0.4;
+                filter: drop-shadow(10px 10px 10px white) blur(5px);
+
+                @media (min-width: 768px) {
+                    height: 70%;
+                    opacity: 1;
+                    filter: drop-shadow(10px 10px 10px white);
+                }
 
                 @media (min-width: 1190px) {
                     height: 80%;
