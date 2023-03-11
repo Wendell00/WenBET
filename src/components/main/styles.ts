@@ -12,7 +12,7 @@ export const MainStyles = styled.main`
         width: 100vw;
         height: 80vh;
         padding: 0;
-        border-radius: 0px;
+        border-radius: 80px;
         box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
         @media (min-width: 768px) {
