@@ -3,17 +3,19 @@ import styled from "styled-components";
 export const MainStyles = styled.main`
 
     .main-content{
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: 0;
         display: flex;
         margin: 0 auto;
-        margin-top: 2%;
         box-sizing: border-box;
         background-image: url('./bgmain-red.png');
         width: 100vw;
-        height: 80vh;
+        height: 100vh;
         padding: 0;
-        border-radius: 80px;
+        border-radius: 0px;
         box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+        z-index: 1;
 
         @media (min-width: 768px) {
             height: 70vh;
@@ -21,6 +23,8 @@ export const MainStyles = styled.main`
             padding-right: 0;
             border-radius: 80px;
             width: 96vw;
+            position: relative;
+            margin-top: 2%;
         }
 
         .main-inner1{

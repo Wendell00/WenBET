@@ -7,6 +7,8 @@ export const NavBarStyles = styled.header`
     display: flex;
     justify-content: center;
     box-sizing: border-box;
+    position: relative;
+    z-index: 2;
 
     .logo{
       width: auto;
