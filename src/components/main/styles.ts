@@ -9,16 +9,18 @@ export const MainStyles = styled.main`
         margin-top: 2%;
         box-sizing: border-box;
         background-image: url('./bgmain-red.png');
-        width: 96vw;
+        width: 100vw;
         height: 80vh;
         padding: 0;
-        border-radius: 80px;
+        border-radius: 0px;
         box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 
         @media (min-width: 768px) {
             height: 70vh;
             padding: 0% 10%;
             padding-right: 0;
+            border-radius: 80px;
+            width: 96vw;
         }
 
         .main-inner1{
