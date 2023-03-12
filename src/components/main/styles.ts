@@ -15,7 +15,6 @@ export const MainStyles = styled.main`
         height: 100vh;
         padding: 0;
         border-radius: 0px;
-        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
         z-index: 1;
 
         @media (min-width: 768px) {
@@ -23,6 +22,7 @@ export const MainStyles = styled.main`
             padding: 0% 10%;
             padding-right: 0;
             border-radius: 80px;
+            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
             width: 96vw;
             position: relative;
             margin-top: 2%;
