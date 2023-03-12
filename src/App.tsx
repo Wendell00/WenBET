@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { FormContextProvider } from './contexts/FormContext'
 import { Home } from './pages/home/home'
 import { Game } from './pages/game/game'
 import { LayoutBet } from './layouts/LayoutBet'
@@ -10,14 +9,14 @@ function App() {
     return (
       <div>
         <BrowserRouter>
-          {/* <FormContextProvider> */}
+          <FormContextProvider>
             <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/bet' element={<LayoutBet />}>
-                <Route path='/bet' element={<Game />} />
-              </Route>
+                <Route path='/' element={<Home />} />
+                <Route path='/bet' element={<LayoutBet />}>
+                  <Route path='/bet' element={<Game />} />
+                </Route>
             </Routes>
-          {/* </FormContextProvider> */}
+          </FormContextProvider>
         </BrowserRouter>
       </div>
     )

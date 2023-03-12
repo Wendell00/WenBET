@@ -163,13 +163,12 @@ export const MainStyles = styled.main`
                 height: 80%;
                 max-width: 100%;
                 opacity: 0.4;
-                filter: blur(5px);
+                filter: drop-shadow(10px 10px 10px white) blur(5px);
 
                 @media (min-width: 768px) {
                     height: 70%;
                     opacity: 1;
                     filter: drop-shadow(10px 10px 10px white);
-                    filter: drop-shadow(10px 10px 10px white) blur(5px);
                 }
 
                 @media (min-width: 1190px) {
