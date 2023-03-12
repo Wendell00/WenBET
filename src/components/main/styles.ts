@@ -13,7 +13,7 @@ export const MainStyles = styled.main`
         background-image: url('./bgmain-red.png');
         width: 100vw;
         height: 100vh;
-        padding: 0;
+        padding: 0 10vh;
         border-radius: 0px;
         z-index: 1;
 
@@ -126,12 +126,15 @@ export const MainStyles = styled.main`
 
             .p2-main{
                 margin-top: 5px;
+                text-align: center;
                 font-size: 0.7em;
                 font-style: italic;
                 font-weight: 300;
                 color: white;
+                width: 380px;
 
                 @media(min-width:840px){
+                    width: auto;
                     font-size: 0.8em;
                 }
 
@@ -158,13 +161,15 @@ export const MainStyles = styled.main`
 
             .img-home{
                 height: 80%;
+                max-width: 100%;
                 opacity: 0.4;
-                filter: drop-shadow(10px 10px 10px white) blur(5px);
+                filter: blur(5px);
 
                 @media (min-width: 768px) {
                     height: 70%;
                     opacity: 1;
                     filter: drop-shadow(10px 10px 10px white);
+                    filter: drop-shadow(10px 10px 10px white) blur(5px);
                 }
 
                 @media (min-width: 1190px) {

@@ -11,7 +11,7 @@ export const NavBarStyles = styled.header`
     z-index: 2;
 
     .logo{
-      width: auto;
+      width: 100%;
       height: 100%;
       filter: drop-shadow(10px 10px 10px black);
     }
