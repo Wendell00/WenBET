@@ -1,5 +1,3 @@
-import Logo from '/assets/logo.svg'
-
 import { NavBarStyles } from './styles'
 
 export const NavBarBet = () =>{
