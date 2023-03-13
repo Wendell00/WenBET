@@ -21,7 +21,11 @@ export const NavBarStyles = styled.header`
         font-weight: 700;
 
         span{
-            color: #1be615;
+            color: white;
+
+            .nick{
+                color: #1be615;
+            }
         }
     }
 `;

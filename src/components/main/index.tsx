@@ -1,11 +1,17 @@
 import { MainStyles } from './styles'
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { FormContext } from '../../contexts/FormContext'
 
 export const Main = () =>{
 
+    const {setName} = useContext(FormContext)
     const navigate = useNavigate()
 
     function handleClick() {
+      const input = document.querySelector(".input-start-bet") as HTMLInputElement;
+      setName(input.value)
+
       navigate('/bet');
     }
 
