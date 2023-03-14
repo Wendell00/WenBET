@@ -86,6 +86,15 @@ export const MainStyles = styled.main`
             .start-bet{
                 margin-top: 15px;
                 display:flex;
+                position: relative;
+                padding-top: 10px;
+
+                .error-text{
+                    position: absolute;
+                    top: -10px;
+                    color: white;
+                    font-weight: 700;
+                }
 
                 .input-start-bet{
                     width: 250px;

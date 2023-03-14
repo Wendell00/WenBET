@@ -2,17 +2,32 @@ import { MainStyles } from './styles'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FormContext } from '../../contexts/FormContext'
+import * as z from 'zod'; 
 
 export const Main = () =>{
+    const schema = z.object({
+      name: z.string().min(3).max(13)
+    });
 
     const {setName} = useContext(FormContext)
     const navigate = useNavigate()
 
     function handleClick() {
-      const input = document.querySelector(".input-start-bet") as HTMLInputElement;
-      setName(input.value)
+      const nick = document.querySelector(".input-start-bet") as HTMLInputElement;
 
-      navigate('/bet');
+      const inputName = {
+        name: nick.value
+      }
+
+      setName(inputName.name)
+
+      try{
+        schema.parse(inputName);
+        navigate('/bet');
+      }catch (error: any) {
+        console.log(inputName.name)
+        console.log(Object.values(error))
+    }
     }
 
     return(
@@ -23,8 +38,9 @@ export const Main = () =>{
                 <p className='p1-main'>Em vez de começar depositando dinheiro real, 
                   você pode jogar em nosso site com dinheiro fícticio e se divertir com o ranking.
                   Começe agora:</p>
-                <div className='start-bet'>
-                  <input type="text" className='input-start-bet' placeholder='Digite seu Nickname:'/>
+                <div className='start-bet shake'>
+                  <p className='error-text'>Campo requerido</p>
+                  <input type="text" className='input-start-bet error-border' placeholder='Digite seu Nome:'/>
                   <button className='btn-start-bet' onClick={handleClick}>Vamos iniciar</button>
                 </div>
                 <p className='p2-main'>

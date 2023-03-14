@@ -15,10 +15,15 @@ export const NavBarStyles = styled.header`
     border: 1px solid rgba(255, 255, 255, 0.3);
 
     p{
-        width: 300px;
+        width: auto;
+        text-align: center;
         color: white;
-        font-size: 1.3em;
+        font-size: 1em;
         font-weight: 700;
+
+        @media(min-width: 768px){       
+            font-size: 1.3em;
+        }
 
         span{
             color: white;
