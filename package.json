@@ -16,6 +16,7 @@
     "react-router-dom": "^6.9.0",
     "styled-components": "^5.3.6",
     "typed.js": "^2.0.132",
+    "vanilla-tilt": "^1.8.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
