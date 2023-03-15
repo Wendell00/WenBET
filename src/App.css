@@ -45,12 +45,14 @@
 }
 
 .ptop-10{
-    padding-top: -10px;
+    padding-top: 10px;
 }
 
 .shake{
-    animation: shake .3s 4;
+    animation: shake .3s 2;
 }
+
+
 
 
 

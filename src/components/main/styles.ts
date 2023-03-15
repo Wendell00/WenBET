@@ -87,12 +87,11 @@ export const MainStyles = styled.main`
                 margin-top: 15px;
                 display:flex;
                 position: relative;
-                padding-top: 10px;
 
                 .error-text{
                     position: absolute;
                     top: -10px;
-                    color: white;
+                    color: pink;
                     font-weight: 700;
                 }
 
@@ -141,6 +140,10 @@ export const MainStyles = styled.main`
                 font-weight: 300;
                 color: white;
                 width: 380px;
+
+                @media(min-width: 768px){
+                    text-align: start;
+                }
 
                 @media(min-width:840px){
                     width: auto;
