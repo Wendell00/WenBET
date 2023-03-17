@@ -6,8 +6,8 @@ export const Game = () =>{
     return(
         <>
             <NavBarBet/>
-            <ButtonPlay/>
             <CardContainer/>
+            <ButtonPlay/>
         </>
     )
 }
