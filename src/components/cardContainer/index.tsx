@@ -4,44 +4,36 @@ import VanillaTilt from 'vanilla-tilt';
 import React, { useRef, useEffect } from 'react';
 
 export const CardContainer = () =>{
-    const tiltRef = useRef(null);
+    const contents = [
+        { id: 1, card: <Card/>},
+        { id: 2, card: <Card/>},
+    ]
+
+    const contentRefs = contents.map(() => useRef<HTMLDivElement>(null))
 
     useEffect(() => {
-        if (tiltRef.current) {
-          VanillaTilt.init(tiltRef.current, {
-            max: 25,
-            speed: 400,
-            glare: true,
-            "max-glare": 0.5,
-          });
-        }
-      }, [tiltRef]);
+        contentRefs.forEach((ref) =>{
+            if(ref.current !== null) {
+                VanillaTilt.init(ref.current, {
+                    max: 25,
+                    speed: 400,
+                    glare: true,
+                    "max-glare": 0.5,
+                });
+            }
+        });
+      }, [contentRefs]);
 
     return(
         <>
             <CardContainerStyles>
-                <div className="tilt" ref={tiltRef}>
-                    <Card/>
-                </div>
-                <div className="tilt" ref={tiltRef}>
-                    <Card/>
-                </div>
-                <div className="tilt" ref={tiltRef}>
-                    <Card/>
-                </div>
-                <div className="tilt" ref={tiltRef}>
-                    <Card/>
-                </div>
-                <div className="tilt" ref={tiltRef}>
-                    <Card/>
-                </div>
-                <div className="tilt" ref={tiltRef}>
-                    <Card/>
-                </div>
-                <div className="tilt" ref={tiltRef}>
-                    <Card/>
-                </div>
-
+                {contents.map((content, index) =>{
+                    return (
+                        <div className='tilt' ref={contentRefs[index]} key={content.id}>
+                            {content.card}
+                        </div>
+                    )
+                })}
             </CardContainerStyles>
         </>
     )
