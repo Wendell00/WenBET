@@ -7,15 +7,15 @@ background: transparent;
 .card {
   width: 190px;
   height: 254px;
-  border-radius: 20px;
+  // border-radius: 20px;
   transition: all .3s;
+  background-image: url('./carta.png');
   cursor: pointer;
  }
  
  .card2 {
   width: 190px;
   height: 254px;
-  background-color: #1a1a1a;
   border-radius:;
   transition: all .2s;
  }
@@ -25,7 +25,7 @@ background: transparent;
  }
  
  .card:hover {
-  // box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+  box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
  }
  
 `;
