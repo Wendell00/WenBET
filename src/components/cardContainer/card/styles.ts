@@ -11,21 +11,35 @@ background: transparent;
   transition: all .3s;
   background-image: url('./carta.png');
   cursor: pointer;
+  box-shadow: none;
  }
  
  .card2 {
   width: 190px;
   height: 254px;
   border-radius:;
-  transition: all .2s;
+  transition: all .2s; 
  }
  
- .card2:hover {
-  transform: scale(0.96);
- }
  
  .card:hover {
-  box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+  box-shadow: none;
  }
+
  
 `;
+
+// import styled from 'styled-components';
+
+// const MeuComponente = styled.div`
+//   background-color: ${props => props.cor};
+// `;
+
+// const minhaCor = '#FF0000';
+
+// function MinhaPagina() {
+//   return (
+//     <MeuComponente cor={minhaCor}>
+//       Meu conteúdo aqui
+//     </MeuComponente>
+//   );

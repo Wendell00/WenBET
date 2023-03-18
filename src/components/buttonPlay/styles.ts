@@ -8,6 +8,20 @@ export const ButtonPlayStyles = styled.button`
   justify-content: center;
   background: transparent;
   
+  .floating { 
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+ 
+  @keyframes floating {
+      0% { transform: translate(0,  0px) scale(1.5); }
+      50%  { transform: translate(0, 15px) scale(1.5); }
+      100%   { transform: translate(0, -0px) scale(1.5); }   
+  }
 
   button {
     padding: 1.3em 3em;

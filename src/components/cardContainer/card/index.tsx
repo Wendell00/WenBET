@@ -5,7 +5,6 @@ export const Card = () =>{
         <>
             <CardStyles>
                 <div className="card">
-                    <div className="card2"></div>
                 </div>
             </CardStyles>
         </>

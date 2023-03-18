@@ -5,7 +5,7 @@ export const ButtonPlay = () =>{
         <>
             <ButtonPlayStyles>
                 <div>
-                    <button> Começar </button>
+                    <button className='floating'> Começar </button>
                 </div>
             </ButtonPlayStyles>
         </>
