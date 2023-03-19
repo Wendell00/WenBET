@@ -9,9 +9,10 @@ background: transparent;
   height: 254px;
   // border-radius: 20px;
   transition: all .3s;
-  background-image: url('./carta.png');
   cursor: pointer;
   box-shadow: none;
+  border: 3px solid rgb(255,255,255, .1);
+  background-image: url('./carta.png');
  }
  
  .card2 {
@@ -24,6 +25,18 @@ background: transparent;
  
  .card:hover {
   box-shadow: none;
+ }
+
+ .blue{
+  background-image: url('./cartaAzul.png');
+ }
+
+ .orange{
+  background-image: url('./cartaLaranja.png');
+ }
+
+ .green{
+  background-image: url('./cartaVerde.png');
  }
 
  

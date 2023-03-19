@@ -27,13 +27,13 @@ export const CardContainer = () =>{
     return(
         <>
             <CardContainerStyles>
-                {/* {contents.map((content, index) =>{
+                {contents.map((content, index) =>{
                     return (
                         <div className='tilt' ref={contentRefs[index]} key={content.id}>
                             {content.card}
                         </div>
                     )
-                })} */}
+                })}
             </CardContainerStyles>
         </>
     )

@@ -1,10 +1,14 @@
 import { CardStyles } from './styles'
 
-export const Card = () =>{
+interface CardProps {
+    color: string;
+  }
+
+export const Card = ({ color, ...props }: CardProps) =>{
     return(
         <>
             <CardStyles>
-                <div className="card">
+                <div className={color + ' card'}>
                 </div>
             </CardStyles>
         </>
