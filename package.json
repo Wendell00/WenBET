@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "joi": "^17.8.4",
+    "magic-snowflakes": "^6.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive": "^9.0.2",

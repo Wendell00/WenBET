@@ -7,8 +7,8 @@ export const Game = () =>{
     return(
         <>
             <NavBarBet/>
-            {/* <CardContainer/>
-            <ButtonPlay/> */}
+            {/* <CardContainer/> */}
+            {/* <ButtonPlay/> */}
             <ModalBet/>
         </>
     )

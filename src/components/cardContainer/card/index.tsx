@@ -4,7 +4,7 @@ interface CardProps {
     color: string;
   }
 
-export const Card = ({ color, ...props }: CardProps) =>{
+export const Card = ({ color = 'defaultCard', ...props }: CardProps) =>{
     return(
         <>
             <CardStyles>

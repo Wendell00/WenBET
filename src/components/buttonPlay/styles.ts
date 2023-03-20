@@ -7,6 +7,8 @@ export const ButtonPlayStyles = styled.button`
   display: flex;
   justify-content: center;
   background: transparent;
+  position: absolute;
+  bottom: 110px;
   
   .floating { 
     animation-name: floating;

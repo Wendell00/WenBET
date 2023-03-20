@@ -3,13 +3,25 @@ import { Card } from './card/index'
 import VanillaTilt from 'vanilla-tilt';
 import React, { useRef, useEffect } from 'react';
 
-export const CardContainer = () =>{
+interface VanillaInterface {
+    bet: boolean;
+  }
+
+export const VanillaTiltFunc = ({bet, ...props}: VanillaInterface) => {
     const contents = [
-        { id: 1, card: <Card/>},
-        { id: 2, card: <Card/>},
+        { id: 1, card: <Card color=''/>},
+        { id: 2, card: <Card color=''/>},
     ]
 
-    const contentRefs = contents.map(() => useRef<HTMLDivElement>(null))
+    const contentsForModal = [
+        { id: 1, card: <Card color='blue'/>},
+        { id: 2, card: <Card color='green'/>},
+        { id: 2, card: <Card color='orange'/>},
+    ]
+    
+
+    const contentRefs = bet ? contents.map(() => useRef<HTMLDivElement>(null)) : contentsForModal.map(() => useRef<HTMLDivElement>(null))
+    const contentCurrent = bet ? contents : contentsForModal
 
     useEffect(() => {
         contentRefs.forEach((ref) =>{
@@ -24,10 +36,10 @@ export const CardContainer = () =>{
         });
       }, [contentRefs]);
 
-    return(
+      return(
         <>
             <CardContainerStyles>
-                {contents.map((content, index) =>{
+                {contentCurrent.map((content, index) =>{
                     return (
                         <div className='tilt' ref={contentRefs[index]} key={content.id}>
                             {content.card}
@@ -35,6 +47,15 @@ export const CardContainer = () =>{
                     )
                 })}
             </CardContainerStyles>
+        </>
+    )
+
+}
+
+export const CardContainer = () =>{
+    return(
+        <>
+            <VanillaTiltFunc bet={true}/>
         </>
     )
 }
