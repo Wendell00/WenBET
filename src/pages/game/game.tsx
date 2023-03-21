@@ -4,6 +4,8 @@ import {CardContainer} from '../../components/cardContainer/index'
 import {ModalBet} from '../../components/modalBet/index'
 
 export const Game = () =>{
+
+    
     return(
         <>
             <NavBarBet/>

@@ -1,15 +1,9 @@
-import {NavBar} from '../../components/navbar/index'
-import {Main} from '../../components/main/index'
-import Snowflakes from 'magic-snowflakes';
-
+import {HomeMain} from '../../components/homeMain/index'
 
 export const Home = () =>{
-    const snowflakes = new Snowflakes();
-    snowflakes.start();
     return(
         <>
-            <NavBar/>
-            <Main/>
+            <HomeMain/>
         </>
     )
 }
