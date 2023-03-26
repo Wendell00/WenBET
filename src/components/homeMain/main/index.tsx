@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { FormContext } from '../../../contexts/FormContext'
 import * as z from 'zod'; 
 import { ZodError } from 'zod';
-import { snowflakes } from '..';
 
 export const Main = () =>{
     const schema = z.object({
@@ -40,7 +39,6 @@ export const Main = () =>{
 
       try{
         schema.parse(inputName);
-        snowflakes.destroy()
         navigate('/bet');
       } catch (error) {
         if (error instanceof ZodError) {
