@@ -11,6 +11,11 @@ export const VanillaTiltFunc = ({bet, ...props}: VanillaInterface) => {
     const contents = [
         { id: 1, card: <Card color=''/>},
         { id: 2, card: <Card color=''/>},
+        { id: 3, card: <Card color=''/>},
+        { id: 4, card: <Card color=''/>},
+        { id: 5, card: <Card color=''/>},
+        { id: 6, card: <Card color=''/>},
+        { id: 7, card: <Card color=''/>}
     ]
 
     const contentsForModal = [

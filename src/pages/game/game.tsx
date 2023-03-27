@@ -9,9 +9,9 @@ export const Game = () =>{
     return(
         <>
             <NavBarBet/>
-            {/* <CardContainer/> */}
-            {/* <ButtonPlay/> */}
-            <ModalBet/>
+            <CardContainer/>
+            <ButtonPlay/>
+            {/* <ModalBet/> */}
         </>
     )
 }

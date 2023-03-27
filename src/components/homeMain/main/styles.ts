@@ -15,7 +15,7 @@ export const MainStyles = styled.main`
         height: 100vh;
         padding: 0 10vh;
         border-radius: 0px;
-        z-index: 1;
+        z-index: -1;
 
         @media (min-width: 768px) {
             height: 70vh;
@@ -26,6 +26,7 @@ export const MainStyles = styled.main`
             width: 96vw;
             position: relative;
             margin-top: 2%;
+            z-index: 999;
         }
 
         .main-inner1{
@@ -36,7 +37,7 @@ export const MainStyles = styled.main`
             justify-content: center;
             align-items: center;
             position: relative;
-            z-index: 100;
+            z-index: 9999;
 
             @media (min-width: 768px) {
                 width: 50%;
@@ -49,8 +50,6 @@ export const MainStyles = styled.main`
                 font-family: 'Roboto', sans-serif;
                 font-weight: 500;
                 color: white;
-                position: relative;
-                z-index: 10;
 
                 @media (min-width: 1040px){
                     width: 350px;
@@ -164,7 +163,7 @@ export const MainStyles = styled.main`
             justify-content: center;
             position: absolute;
             left: 0;
-            z-index: 2;
+            z-index: -1;
 
             @media (min-width: 768px) {
                 width: 50%;
