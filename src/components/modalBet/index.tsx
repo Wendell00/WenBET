@@ -1,5 +1,5 @@
 import { DivStyles } from './styles'
-import {useState, useEffect} from 'react'
+import { useEffect, useState } from 'react';
 import {VanillaTiltFunc} from '../cardContainer/index'
 
 
@@ -9,6 +9,14 @@ export const ModalBet = () =>{
         <DivStyles>
           <div className='cards'>
             <VanillaTiltFunc bet={false}/>
+          </div>
+          <div className="apostaContainer">
+            <div className="input-container">
+              <input  placeholder="Valor" type="text"/>
+              <button className="apostar-btn" type="button">
+                Apostar
+              </button>
+            </div>
           </div>
         </DivStyles>
     )

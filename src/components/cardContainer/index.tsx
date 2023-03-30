@@ -41,6 +41,24 @@ export const VanillaTiltFunc = ({bet, ...props}: VanillaInterface) => {
         });
       }, [contentRefs]);
 
+    useEffect(() => {
+        const allCards = document.querySelectorAll('.card')
+
+        function clearCard(){
+            allCards.forEach((card, index) => {
+                allCards[index].classList.remove('white-border')
+            });
+        }
+
+        allCards.forEach((card, index) => {
+            card.addEventListener('click', () => {
+                clearCard()
+                allCards[index].classList.add('white-border')
+            });
+          });
+      }, []);
+
+
       return(
         <>
             <CardContainerStyles>

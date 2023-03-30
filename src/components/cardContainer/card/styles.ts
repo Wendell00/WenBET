@@ -39,6 +39,10 @@ background: transparent;
   background-image: url('./cartaVerde.png');
  }
 
+ .white-border{
+  border: 2px solid white;
+ }
+
  
 `;
 
