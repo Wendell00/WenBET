@@ -2,8 +2,11 @@ import { DivStyles } from './styles'
 import { useEffect, useState } from 'react';
 import {VanillaTiltFunc} from '../cardContainer/index'
 
+interface ModalBetProps{
+  display: boolean;
+}
 
-export const ModalBet = () =>{
+export const ModalBet = ({display = false, ...props}: ModalBetProps) =>{
    
     return(
         <DivStyles>
