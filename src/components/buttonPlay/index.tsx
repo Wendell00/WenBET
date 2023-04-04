@@ -1,12 +1,26 @@
 import { ButtonPlayStyles } from './styles'
+import { useContext } from 'react'
+import { FormContext } from '../../contexts/FormContext'
 
-export const ButtonPlay = () =>{
+interface ModalBetProps{
+    display: boolean;
+  }
+
+export const ButtonPlay = ({display = false, ...props}: ModalBetProps) =>{
+    const {setStartBet, startBet, setMsgTyped} = useContext(FormContext)
+    function handleClick(){
+        setStartBet(startBet)
+        setMsgTyped('Escolha uma carta e um valor para apostar!')
+    }
+    console.log(display)
     return(
         <>
             <ButtonPlayStyles>
-                <div>
-                    <button className='floating'> Começar </button>
-                </div>
+                {!display && (
+                    <div className='buttonContainer'>
+                    <button className='floating' onClick={handleClick}> Começar </button>
+                    </div>
+                )}
             </ButtonPlayStyles>
         </>
     )

@@ -2,9 +2,12 @@ import styled from "styled-components";
 
 
 export const DivStyles = styled.div`
-    height: 90vh;
-    background-color: black;
-    width: 100vw;
+    .modalBetContainer{
+      height: 90vh;
+      background-color: rgb(0,0,0, .9);
+      width: 100vw;
+      position: absolute;
+    }
 
     .cards{
         width: 60%;

@@ -4,7 +4,7 @@ import { FormContext } from '../../contexts/FormContext'
 import Typed from 'typed.js';
 
 export const NavBarBet = () =>{
-  const {name} = useContext(FormContext)
+  const {name, msgTyped} = useContext(FormContext)
 
   type TypedTextProps = {
     text: string;
@@ -33,7 +33,7 @@ export const NavBarBet = () =>{
   return(
     <NavBarStyles>
       <div className="nav">
-          <p className='text'><TypedText text={`Bem vindo a WenBET, <span class='nick'/> ${name} </span> !`}/></p>
+          <p className='text'><TypedText text={`${msgTyped}`}/></p>
       </div>
     </NavBarStyles>
   )
