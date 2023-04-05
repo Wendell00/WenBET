@@ -2,10 +2,18 @@ import { CardContainerStyles } from './styles'
 import { Card } from './card/index'
 import VanillaTilt from 'vanilla-tilt';
 import React, { useRef, useEffect } from 'react';
+import { useContext } from 'react'
+import { FormContext } from '../../contexts/FormContext'
 
 interface VanillaInterface {
     bet: boolean;
   }
+
+interface CardInterface{
+    display: boolean;
+}
+
+  
 
 export const VanillaTiltFunc = ({bet, ...props}: VanillaInterface) => {
     const contents = [
@@ -75,10 +83,13 @@ export const VanillaTiltFunc = ({bet, ...props}: VanillaInterface) => {
 
 }
 
-export const CardContainer = () =>{
+export const CardContainer = ({display = false, ...props}: CardInterface) =>{
+    const {firstBet} = useContext(FormContext)
     return(
         <>
-            <VanillaTiltFunc bet={true}/>
+            {(!display && !firstBet) && (
+                <VanillaTiltFunc bet={true}/>
+            )}
         </>
     )
 }

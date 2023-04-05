@@ -11,12 +11,15 @@ interface FormContextData {
   setMsgTyped: (name: string) => void;
   startBet: boolean;
   setStartBet: (startBet: boolean) => void;
+  firstBet: boolean;
+  setFirstBet: (startBet: boolean) => void;
 }
 
 type Action =
   | { type: 'SET_NAME', payload: string }
   | { type: 'SET_MSG_TYPED', payload: string }
-  | { type: 'SET_START_BET', payload: boolean };
+  | { type: 'SET_START_BET', payload: boolean }
+  | { type: 'SET_FIRST_BET', payload: boolean };
 
 function reducer(state: FormContextData, action: Action) {
   switch (action.type) {
@@ -26,6 +29,8 @@ function reducer(state: FormContextData, action: Action) {
       return { ...state, msgTyped: action.payload };
     case 'SET_START_BET':
       return { ...state, startBet: !state.startBet };
+    case 'SET_FIRST_BET':
+      return { ...state, firstBet: false };
     default:
       return state;
   }
@@ -37,26 +42,32 @@ export function FormContextProvider({ children }: FormContextProviderProps) {
   const [state, dispatch] = useReducer(reducer, { 
     name: '', setName: () => {},
     startBet: false, setStartBet: () => {},
-    msgTyped: '', setMsgTyped: () => {}
+    firstBet: true, setFirstBet: () => {},
+    msgTyped: '', setMsgTyped: () => {},
     });
 
   function setName(name: string) {
     dispatch({ type: 'SET_NAME', payload: name });
   }
 
+  function setMsgTyped(msgTyped: string) {
+    dispatch({ type: 'SET_MSG_TYPED', payload: msgTyped });
+  }
+
   function setStartBet(startBet: boolean) {
     dispatch({ type: 'SET_START_BET', payload: startBet});
   }
 
-  function setMsgTyped(msgTyped: string) {
-    dispatch({ type: 'SET_MSG_TYPED', payload: msgTyped });
+  function setFirstBet(firstBet: boolean) {
+    dispatch({ type: 'SET_FIRST_BET', payload: firstBet});
   }
 
   return (
     <FormContext.Provider value={{ 
       name: state.name, setName, 
+      msgTyped: state.msgTyped, setMsgTyped,
       startBet: state.startBet, setStartBet,
-      msgTyped: state.msgTyped, setMsgTyped
+      firstBet: state.firstBet, setFirstBet,
       }}>
       {children}
     </FormContext.Provider>

@@ -15,7 +15,7 @@ export const MainStyles = styled.main`
         height: 100vh;
         padding: 0 10vh;
         border-radius: 0px;
-        z-index: -1;
+        z-index: 0;
 
         @media (min-width: 768px) {
             height: 70vh;

@@ -1,6 +1,6 @@
 import {NavBar} from '../../components/homeMain/navbar/index'
 import {Main} from '../../components/homeMain/main/index'
-import Snowflakes from 'magic-snowflakes';
+// import Snowflakes from 'magic-snowflakes';
 import { MainStyles } from './styles'
 
 // export const snowflakes = new Snowflakes({

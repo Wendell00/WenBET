@@ -7,7 +7,7 @@ interface ModalBetProps{
   }
 
 export const ButtonPlay = ({display = false, ...props}: ModalBetProps) =>{
-    const {setStartBet, startBet, setMsgTyped} = useContext(FormContext)
+    const {setStartBet, startBet, setMsgTyped, firstBet} = useContext(FormContext)
     function handleClick(){
         setStartBet(startBet)
         setMsgTyped('Escolha uma carta e um valor para apostar!')
@@ -16,7 +16,7 @@ export const ButtonPlay = ({display = false, ...props}: ModalBetProps) =>{
     return(
         <>
             <ButtonPlayStyles>
-                {!display && (
+                {(!display && firstBet) && (
                     <div className='buttonContainer'>
                     <button className='floating' onClick={handleClick}> Começar </button>
                     </div>
