@@ -16,6 +16,8 @@ interface CardInterface{
   
 
 export const VanillaTiltFunc = ({bet, ...props}: VanillaInterface) => {
+    const {setColorBet, colorBet} = useContext(FormContext)
+
     const contents = [
         { id: 1, card: <Card color=''/>},
         { id: 2, card: <Card color=''/>},
@@ -61,7 +63,10 @@ export const VanillaTiltFunc = ({bet, ...props}: VanillaInterface) => {
         allCards.forEach((card, index) => {
             card.addEventListener('click', () => {
                 clearCard()
-                allCards[index].classList.add('white-border')
+                if(!bet){
+                    allCards[index].classList.add('white-border')
+                    setColorBet(allCards[index].classList[0])
+                }
             });
           });
       }, []);

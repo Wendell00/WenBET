@@ -13,13 +13,16 @@ interface FormContextData {
   setStartBet: (startBet: boolean) => void;
   firstBet: boolean;
   setFirstBet: (startBet: boolean) => void;
+  colorBet: string;
+  setColorBet: (name: string) => void;
 }
 
 type Action =
   | { type: 'SET_NAME', payload: string }
   | { type: 'SET_MSG_TYPED', payload: string }
   | { type: 'SET_START_BET', payload: boolean }
-  | { type: 'SET_FIRST_BET', payload: boolean };
+  | { type: 'SET_FIRST_BET', payload: boolean }
+  | { type: 'SET_COLOR_BET', payload: string };
 
 function reducer(state: FormContextData, action: Action) {
   switch (action.type) {
@@ -31,6 +34,8 @@ function reducer(state: FormContextData, action: Action) {
       return { ...state, startBet: !state.startBet };
     case 'SET_FIRST_BET':
       return { ...state, firstBet: false };
+    case 'SET_COLOR_BET':
+      return { ...state, colorBet: action.payload };
     default:
       return state;
   }
@@ -44,6 +49,7 @@ export function FormContextProvider({ children }: FormContextProviderProps) {
     startBet: false, setStartBet: () => {},
     firstBet: true, setFirstBet: () => {},
     msgTyped: '', setMsgTyped: () => {},
+    colorBet: '', setColorBet: () => {},
     });
 
   function setName(name: string) {
@@ -62,12 +68,17 @@ export function FormContextProvider({ children }: FormContextProviderProps) {
     dispatch({ type: 'SET_FIRST_BET', payload: firstBet});
   }
 
+  function setColorBet(colorBet: string) {
+    dispatch({ type: 'SET_COLOR_BET', payload: colorBet });
+  }
+
   return (
     <FormContext.Provider value={{ 
       name: state.name, setName, 
       msgTyped: state.msgTyped, setMsgTyped,
       startBet: state.startBet, setStartBet,
       firstBet: state.firstBet, setFirstBet,
+      colorBet: state.colorBet, setColorBet,
       }}>
       {children}
     </FormContext.Provider>

@@ -1,15 +1,25 @@
 import { NavBarStyles } from './styles'
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useMemo } from 'react';
 import { FormContext } from '../../contexts/FormContext'
 import Typed from 'typed.js';
 
 export const NavBarBet = () =>{
-  const {name, msgTyped} = useContext(FormContext)
+  const { name, msgTyped } = useContext(FormContext)
 
   type TypedTextProps = {
     text: string;
   };
-  
+
+  const memoizedComponent = useMemo(() => {
+    return (
+      <div className="nav">
+        <p className='text'>
+          <TypedText text={`${msgTyped}`}/>
+        </p>
+      </div>
+    );
+  }, [msgTyped]);
+
   function TypedText({ text }: TypedTextProps) {
     const typedRef = React.useRef(null);
   
@@ -32,9 +42,8 @@ export const NavBarBet = () =>{
 
   return(
     <NavBarStyles>
-      <div className="nav">
-          <p className='text'><TypedText text={`${msgTyped}`}/></p>
-      </div>
+      {memoizedComponent}
     </NavBarStyles>
   )
 }
+
