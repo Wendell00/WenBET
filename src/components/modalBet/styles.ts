@@ -25,72 +25,31 @@ export const DivStyles = styled.div`
       align-items: center;
       box-sizing: border-box;
 
-      .input-container {
+      button {
         position: relative;
-        display: flex;
-        height: 2.8rem;
-        width: 100%;
-        min-width: 200px;
-        max-width: 250px;
-        background-image: url('./bgmain-gray.png');
-        border-radius: 8px;
-        box-shadow: 20px 20px 30px rgba(0, 0, 0, .05);
-      }
-      
-      .input-container input {
-        height: 100%;
-        width: 100%;
-        border-radius: 8px;
-        border: 1px solid #136E10;
-        background-color: transparent;
-        padding: 0.625rem 70px 0.625rem 0.75rem;
-        font-size: 0.875rem;
-        line-height: 1.25rem;
-        font-weight: 400;
-        color: white;
-        outline: none;
-        transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      
-      .input-container input:focus {
-        border: 1px solid #136E10;
-      }
-      
-      .apostar-btn {
-        position: absolute;
-        width: 100px;
-        right: 4px;
-        top: 4px;
-        bottom: 4px;
-        z-index: 10;
-        border-radius: 4px;
-        background-color: #136E10;
-        color: #fff;
-        padding-top: .25rem;
-        padding-bottom: .25rem;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+        display: inline-block;
+        margin: 15px;
+        padding: 15px 30px;
         text-align: center;
-        vertical-align: middle;
-        font-size: 12px;
-        font-weight: 600;
-        text-transform: uppercase;
-        border: none;
-        transition: .6s ease;
+        font-size: 18px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        color: #1be615;
+        background: transparent;
         cursor: pointer;
+        transition: ease-out 0.5s;
+        border: 2px solid #1be615;
+        border-radius: 10px;
+        box-shadow: inset 0 0 0 0 #1be615;
       }
       
-      .apostar-btn:hover {
-        right: 2px;
-        top: 2px;
-        bottom: 2px;
-        border-radius: 8px;
+      button:hover {
+        color: white;
+        box-shadow: inset 0 -100px 0 0 #0D730A;
       }
       
-      .input-container input:placeholder-shown ~ .apostar-btn {
-        pointer-events: none;
-        background-color: gray;
-        opacity: 0.5;
+      button:active {
+        transform: scale(0.9);
       }
     }
 

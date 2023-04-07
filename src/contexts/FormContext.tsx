@@ -8,13 +8,13 @@ interface FormContextData {
   name: string;
   setName: (name: string) => void;
   msgTyped: string;
-  setMsgTyped: (name: string) => void;
+  setMsgTyped: (msgTyped: string) => void;
   startBet: boolean;
   setStartBet: (startBet: boolean) => void;
   firstBet: boolean;
-  setFirstBet: (startBet: boolean) => void;
+  setFirstBet: (firstBet: boolean) => void;
   colorBet: string;
-  setColorBet: (name: string) => void;
+  setColorBet: (colorBet: string) => void;
 }
 
 type Action =
@@ -22,7 +22,7 @@ type Action =
   | { type: 'SET_MSG_TYPED', payload: string }
   | { type: 'SET_START_BET', payload: boolean }
   | { type: 'SET_FIRST_BET', payload: boolean }
-  | { type: 'SET_COLOR_BET', payload: string };
+  | { type: 'SET_COLOR_BET', payload: string }
 
 function reducer(state: FormContextData, action: Action) {
   switch (action.type) {

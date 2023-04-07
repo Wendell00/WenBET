@@ -13,10 +13,17 @@ interface CardInterface{
     display: boolean;
 }
 
-  
-
 export const VanillaTiltFunc = ({bet, ...props}: VanillaInterface) => {
-    const {setColorBet, colorBet} = useContext(FormContext)
+    const {setColorBet, colorBet, setMsgTyped} = useContext(FormContext)
+    const listBet: Array<String> = ['Blue','Blue','Blue','Green','Orange','Orange','Orange'];
+    let countBet: number = 0
+    let cardChoice: number
+
+    function randomSort() {
+        return 0.5 - Math.random();
+      }
+    
+    let listRandom = listBet.sort(randomSort);
 
     const contents = [
         { id: 1, card: <Card color=''/>},
@@ -29,9 +36,9 @@ export const VanillaTiltFunc = ({bet, ...props}: VanillaInterface) => {
     ]
 
     const contentsForModal = [
-        { id: 1, card: <Card color='blue'/>},
-        { id: 2, card: <Card color='green'/>},
-        { id: 2, card: <Card color='orange'/>},
+        { id: 1, card: <Card color='Blue'/>},
+        { id: 2, card: <Card color='Green'/>},
+        { id: 2, card: <Card color='Orange'/>},
     ]
     
 
@@ -60,12 +67,36 @@ export const VanillaTiltFunc = ({bet, ...props}: VanillaInterface) => {
             });
         }
 
+        function showCards(cardChoice: number){
+            allCards.forEach((card, index) => {
+                allCards[index].classList.add(`changeCard${listRandom[index]}`)
+                if(index = cardChoice){
+                    allCards[index].classList.add('white-border')
+                }
+            });
+        }
+
         allCards.forEach((card, index) => {
             card.addEventListener('click', () => {
-                clearCard()
                 if(!bet){
+                    clearCard()
                     allCards[index].classList.add('white-border')
                     setColorBet(allCards[index].classList[0])
+                }
+                else if(bet && countBet == 0){
+                    allCards[index].classList.add(`changeCard${listRandom[index]}`)
+                    let answer = allCards[index].classList.toString().split(' ')[1].slice(10)
+                    if(answer == colorBet){
+                        setMsgTyped('Parabéns você Acertou!')
+                    }
+                    else{
+                        setMsgTyped('Infelizmente você Errou!')
+                    }
+                    cardChoice = index
+                    countBet++
+                    setTimeout(() => {
+                        showCards(cardChoice)
+                    }, 1500);
                 }
             });
           });

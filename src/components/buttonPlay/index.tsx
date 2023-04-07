@@ -10,7 +10,7 @@ export const ButtonPlay = ({display = false, ...props}: ModalBetProps) =>{
     const {setStartBet, startBet, setMsgTyped, firstBet} = useContext(FormContext)
     function handleClick(){
         setStartBet(startBet)
-        setMsgTyped('Escolha uma carta e um valor para apostar!')
+        setMsgTyped('Escolha uma carta para apostar!')
     }
     console.log(display)
     return(
